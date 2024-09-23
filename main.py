@@ -1,5 +1,4 @@
 # You can initialize important data at the top of the program!
-score = 0
 trivia = [{ 
            'question': "Who is the mayor of Pelican town?",
            'answer': 'Lewis',
@@ -18,11 +17,33 @@ trivia = [{
           ]
 
 
+# Display the question and possible options
+# Function takes question (String), answer (String), options (list)
+# Function returns a boolean
+def ask_question(question, answer, options):
+    # 1. Print out a question from the trivia list
+    # 2. Print out the options (list)
+    # 3. Get user input
+    #choice = input("Your answer:")
+    #print(choice)
+    # 4. Check if choice matches correct answer
+    return False
+
 # Main method for game loop
 def main():
     print("Let's play 🐓 Stardew Valley 🚜 Trivia!")
-    #choice = input("Your answer:")
-    #print(choice)
+    score = 0
+
+    # Starting with just ONE trivia item, loop later
+    current = trivia[0] # dictionary
+    # Get data from that item
+    q = current['question']
+    a = current['answer']
+    ops = current['options']
+    # Pass in q, a, and options into ask_question
+    is_correct = ask_question(q, a, ops)
+    
+    # Update score accordingly
 
 
 if __name__ == "__main__":
