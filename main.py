@@ -22,11 +22,15 @@ trivia = [{
 # Function returns a boolean
 def ask_question(question, answer, options):
     # 1. Print out a question from the trivia list
+    print(question) 
     # 2. Print out the options (list)
+    for option in options:
+        print(f"★ {option}")
     # 3. Get user input
-    #choice = input("Your answer:")
-    #print(choice)
+    choice = input("Enter answer: ")
     # 4. Check if choice matches correct answer
+    if choice.lower() == answer.lower():
+        return True
     return False
 
 # Main method for game loop
@@ -34,7 +38,6 @@ def main():
     print("Let's play 🐓 Stardew Valley 🚜 Trivia!")
     score = 0
 
-    # Starting with just ONE trivia item, loop later
     current = trivia[0] # dictionary
     # Get data from that item
     q = current['question']
@@ -42,9 +45,12 @@ def main():
     ops = current['options']
     # Pass in q, a, and options into ask_question
     is_correct = ask_question(q, a, ops)
-    
+    print(is_correct) # test ask_question function
     # Update score accordingly
+    if is_correct:
+        score+=1
 
+    print(score)
 
 if __name__ == "__main__":
     main()
