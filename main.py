@@ -1,3 +1,5 @@
+import random
+
 # You can initialize important data at the top of the program!
 trivia = [{ 
            'question': "Who is the mayor of Pelican town?",
@@ -24,6 +26,7 @@ def ask_question(question, answer, options):
     # 1. Print out a question from the trivia list
     print(question) 
     # 2. Print out the options (list)
+    random.shuffle(options)
     for option in options:
         print(f"★ {option}")
     # 3. Get user input
@@ -38,19 +41,23 @@ def main():
     print("Let's play 🐓 Stardew Valley 🚜 Trivia!")
     score = 0
 
-    current = trivia[0] # dictionary
-    # Get data from that item
-    q = current['question']
-    a = current['answer']
-    ops = current['options']
-    # Pass in q, a, and options into ask_question
-    is_correct = ask_question(q, a, ops)
-    print(is_correct) # test ask_question function
-    # Update score accordingly
-    if is_correct:
-        score+=1
+    for num in range(len(trivia)):
+        current = trivia[num] # dictionary
+        # Get data from that item
+        q = current['question']
+        a = current['answer']
+        ops = current['options']
+        # Pass in q, a, and options into ask_question
+        is_correct = ask_question(q, a, ops)
+        print(is_correct) # test ask_question function
+        # Update score accordingly
+        if is_correct:
+            score+=1
 
+    # Display final score
     print(score)
+
+
 
 if __name__ == "__main__":
     main()
